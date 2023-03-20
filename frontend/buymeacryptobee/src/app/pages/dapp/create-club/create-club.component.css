@@ -1,0 +1,14 @@
+.upload-logo{
+    color: transparent;
+width:100px!important;
+height:100px!important;;
+background:white;
+background-position: center; /* Center the image */
+background-repeat: no-repeat; /* Do not repeat the image */
+background-size: cover; /* Resize the background image to cover the entire container */
+margin-bottom: 15px;
+}
+
+input, select, textarea{
+    color: #ffffff!important;
+}

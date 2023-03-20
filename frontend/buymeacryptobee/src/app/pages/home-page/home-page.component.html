@@ -1,0 +1,59 @@
+<app-dappheader></app-dappheader>
+<ngx-ui-loader  [text]="messageLoader"></ngx-ui-loader>
+
+ 
+    <!-- start banner area -->
+    <div class="slide slide-style-14 slider-video-bg d-flex align-items-center justify-content-center" data-black-overlay="8">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="banner-xii-wrapper" style="width: 100%!important;">
+                        <div class="banner-content-wrapper">
+                            <!-- <p class="pre-title">Nuron marketplace</p> -->
+                         
+                            <h1 class="title">Buy me a crypto beer <i data-feather="thumbs-up"></i> </h1>
+                            <p class="post-title">A crypto donations platform for content creators ! </p>
+                            <a class="btn btn-primary btn-large" (click)="connectWallet()" *ngIf="!walletConnected && hasWallet" >Connect your wallet</a><img *ngIf="!walletConnected  && hasWallet" style="width: 40px;" src="assets/images/icons/wallet/1.png" alt="wallet_image">
+                            <div class="container" *ngIf="walletConnected && hasWallet && !customer" >
+                                
+                                <div class="mb-5">
+                                    <input type="text" style="color:white" value="https://www.buymeacryptobeer.com/<your_choice>" readonly aria-label="protocol">
+                               
+                                     <a class="btn btn-primary btn-large" style="margin-top: 20px;" routerLink="/create-account">Create my account</a> 
+                                </div>
+                          
+                              
+                               
+                             </div>
+
+                             <div class="col  offset-1 ml_md--0 ml_sm--0"  *ngIf="!hasWallet" >
+                                <p class="post-title">You need to install a wallet in your browser !</p>
+                                <a class="btn btn-primary btn-large" href="https://metamask.io/" target="_blank">Install Metamask</a><img  style="width: 40px;" src="assets/images/icons/wallet/1.png" alt="wallet_image">
+                                           
+                            </div>
+                             <a class="btn btn-primary btn-large" (click)="goToAccount()" *ngIf="walletConnected && hasWallet && customer" >Go to my dashboard</a> 
+                            <h3 style="margin-top:60px;font-size: 22px!important;">Create an account and start receiving crypto donations in MATIC!</h3>
+                            <p style="margin-top:60px;font-size: 20px!important;"><i>It's FREE and we don't charge any royalties/fees</i></p>
+                            <p>Build on <a href="https://polygon.technology/" target="_blank">Polygon <img width="80px" src="assets/images/polygon-logo.webp"></a></p>
+                            <!-- <a href="https://www.buymeacryptobeer.com/ChristopheSurbier" target="_blank" title="BuyMeACryptoBeer">
+                                <img  width="180px" src="https://www.buymeacryptobeer.com/assets/images/logo/bigLogo.png" alt="BuyMeACryptoBeer" />
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="video-background">
+           
+        </div>
+
+    </div>
+    <!-- End banner area -->
+
+
+ 
+  
+<app-dappfooter></app-dappfooter>

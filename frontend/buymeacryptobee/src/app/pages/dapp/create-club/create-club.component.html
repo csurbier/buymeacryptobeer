@@ -1,0 +1,155 @@
+<app-dappheader></app-dappheader>
+<ngx-ui-loader  [text]="messageLoader"></ngx-ui-loader>
+  <!-- start page title area -->
+  <div class="rn-breadcrumb-inner ptb--30">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-6 col-12">
+                <h5 class="title text-center text-md-start">Create an Account</h5>
+             
+            </div>
+            <div class="col-lg-6 col-md-6 col-12">
+                <ul class="breadcrumb-list">
+                    <li class="item"><a routerLink="/">Home</a></li>
+                    <li class="separator"><i class="feather-chevron-right"></i></li>
+                    <li class="item current">Create account</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end page title area -->
+
+
+<!-- create new product area -->
+<div class="create-area rn-section-gapTop">
+    <div class="container">
+
+        <div class="row g-5">
+            <div>Your donation url will be:<p style="color:white">{{accountUrl}}</p></div>
+            <div class="col-lg-7">
+                <div class="form-wrapper-one">
+
+                    <form class="row" [formGroup]="createForm" (ngSubmit)="onSubmit()" novalidate>
+                       
+
+                        <div class="col-12">
+                             <div class="upload-area">
+                                <div class="upload-formate mb--30">
+                                    <h6 class="title">
+                                        Choose a picture*
+                                    </h6>
+
+                                </div>
+                           </div>
+                           <div>
+                           
+                            <input accept="image/png, image/gif, image/jpeg" 
+                            formControlName="logo"
+                            id="logo"
+                            type="file"
+                            class="form-control"
+                            
+                            (change)="onLogoChange($event)">  
+                            <div *ngIf="createForm.controls['logo'].invalid && (createForm.controls['logo'].dirty || createForm.controls['logo'].touched)" class="alert alert-danger">
+                                <div *ngIf="createForm.controls['logo'].errors.required">
+                                Picture is required.
+                              </div>
+                            </div>
+                        <img [src]="imageLogoSrc" *ngIf="imageLogoSrc" style="height: 200px; width:200px">
+   
+                          </div>
+
+                       
+
+                          </div>
+
+                           <div class="col-md-12" style="margin-top: 20px">
+                            <div class="input-box pb--20">
+                                <input   formControlName="name"  class="form-control" 
+                                placeholder="Name*">
+                                
+                            </div>
+                            <div *ngIf="!free" class="alert alert-danger">
+                                <div>
+                                Name already exists. Please choose another one.
+                              </div>
+                            </div>
+                            <div *ngIf="createForm.controls['name'].invalid && (createForm.controls['name'].dirty || createForm.controls['name'].touched)" class="alert alert-danger">
+                                <div *ngIf="createForm.controls['name'].errors.required">
+                                Name is required.
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="mb-5 rn-check-box">
+                                <input type="checkbox" class="rn-check-box-input" id="exampleCheck1" formControlName="useWallet">
+                                <label class="rn-check-box-label" for="exampleCheck1">Use my wallet address</label>
+                            </div>
+                        </div>
+                         <div class="col-md-12">
+                            <div class="input-box pb--20">
+                                <div style="display:inline-flex;align-items: center;width: 100%;">
+                                     <input id="website" formControlName="website" type="url" class="form-control"
+                                    placeholder="Website url"> 
+                                </div>
+                               
+                            </div>
+                            
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-box pb--20">
+                                <textarea formControlName="description"  cols="40" rows="5" placeholder="Please enter a description*"></textarea>
+                            </div>
+                            <div *ngIf="createForm.controls['description'].invalid && (createForm.controls['description'].dirty || createForm.controls['description'].touched)" class="alert alert-danger">
+                                <div *ngIf="createForm.controls['description'].errors.required">
+                                A description is required
+                              </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col">
+                            <div class="input-box">
+                                
+                                     <button [disabled]="createForm.invalid" type="submit" class="btn btn-primary btn-large w-100 sendForm">Create my account</button>
+                                
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-box pb--20">
+                                
+                                <p style="font-size: 12px">* fields are required</p>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+<div class="col-lg-3 offset-1 ml_md--0 ml_sm--0">
+                <!-- file upload area -->
+                <div class="upload-area">
+
+                    
+                </div>
+                <!-- end upoad file area -->
+
+                <div class="mt--100 mt_sm--30 mt_md--30 d-none d-lg-block">
+                     <h5> Note: </h5>
+                <span> <strong>Creating an account is free </strong> </span> <br>
+                <span> You just have to pay gas fees.</span>
+                </div>
+
+            </div>
+
+            <div class="mt--100 mt_sm--30 mt_md--30 d-block d-lg-none">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- create new product area -->
+
+<app-dappfooter></app-dappfooter>
