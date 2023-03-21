@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { env } from 'process';
 import Web3 from 'web3';
 import { BehaviorSubject } from 'rxjs';
+import { EthereumProvider } from "@walletconnect/ethereum-provider";
 
 
 @Injectable({ providedIn: 'root' })
@@ -46,8 +47,8 @@ export class Web3ContractService  {
           this.connectedAddress = address[0];
           this.walletConnected = true 
           // URL "https://polygon-mumbai.infura.io/v3/914415386b7447af8a025e3dd72af038",
-          this.web3 = new Web3(Web3.givenProvider)
-         // this.web3 = new Web3(environment.INFURA_ID) 
+            
+         this.web3 = new Web3(Web3.givenProvider)
          console.log('address', address);
           this.checkCurrentChainId().then((ok)=>{
             if (ok){

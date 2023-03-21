@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "exhibfans": {
+    "buymeacryptobeer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {

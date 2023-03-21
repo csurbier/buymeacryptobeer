@@ -173,7 +173,7 @@ export class CreateClubComponent implements OnInit {
         this.submitted = false
         this.ngxService.stop();
         if (error.code!=4001){
-          this.showError()
+          this.showError(error.message)
         }
        
       }
@@ -181,10 +181,12 @@ export class CreateClubComponent implements OnInit {
   }
  
 
-  showError(){
+ 
+  showError(message:any){
+    
     Swal.fire({
       title: 'Sorry an error occured',
-      text: "Please try later",
+      text: message,
       icon: 'error',
       showCancelButton: false,
       confirmButtonText: 'OK',

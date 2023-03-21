@@ -31,6 +31,7 @@ export class DonationPageComponent implements OnInit {
   accountDonation:any ;
   amount=1 
   submitted = false 
+  donatorPageName:any
   constructor(public contractService: ContractServiceService,
     public web3Contract: Web3ContractService,
     private formBuilder: FormBuilder,
@@ -43,7 +44,8 @@ export class DonationPageComponent implements OnInit {
     
     public ngxService: NgxUiLoaderService) {
 
-     
+     this.donatorPageName =  window.location.href.split('/').pop();
+   
       
   }
   ngOnInit() {
@@ -105,7 +107,7 @@ export class DonationPageComponent implements OnInit {
     this.messageLoader = "Retrieving account information on blockchain"
    
     let accountName =  window.location.href.split('/').pop();
-    console.log(accountName)
+    
     if (accountName){
       this.ngxService.start()
       this.contractService.walletAddressForName(accountName,this.walletAddress).then((address)=>{
@@ -167,7 +169,7 @@ export class DonationPageComponent implements OnInit {
         this.submitted = false
         this.ngxService.stop();
         if (error.code!=4001){
-          this.showError()
+          this.showError(error.message)
         }
        
       }
@@ -175,10 +177,11 @@ export class DonationPageComponent implements OnInit {
     
   }
 
-  showError(){
+  showError(message:any){
+    
     Swal.fire({
       title: 'Sorry an error occured',
-      text: "Please try later",
+      text: message,
       icon: 'error',
       showCancelButton: false,
       confirmButtonText: 'OK',
