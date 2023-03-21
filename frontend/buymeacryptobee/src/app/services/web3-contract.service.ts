@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { env } from 'process';
 import Web3 from 'web3';
 import { BehaviorSubject } from 'rxjs';
-import { EthereumProvider } from "@walletconnect/ethereum-provider";
 
 
 @Injectable({ providedIn: 'root' })
